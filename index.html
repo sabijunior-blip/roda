@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0E1116">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Roda">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<title>Roda</title>
+<style>
+:root{--bg:#0E1116;--s:#171B22;--b:#232A35;--t:#F3F4F6;--t2:#8B94A3;--t3:#6B7280;--a:#E8B45A;--g:#3DDC97;--r:#F0705A;color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--t);font-family:Inter,-apple-system,system-ui,"Segoe UI",Roboto,sans-serif;font-size:15px}
+#app{max-width:480px;margin:0 auto;min-height:100vh;padding:calc(env(safe-area-inset-top) + 18px) 20px calc(100px + env(safe-area-inset-bottom))}
+h1{font-size:20px;font-weight:500;margin:0}
+.h2{font-size:13px;font-weight:500;margin:22px 0 8px}
+.sm{font-size:12px;color:var(--t2)}
+.big{font-size:34px;font-weight:500;line-height:1.2}
+.m{font-size:17px;font-weight:500;margin-top:2px}
+.card{background:var(--s);border-radius:14px;padding:12px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.top{display:flex;justify-content:space-between;align-items:center;cursor:pointer}
+.av{width:34px;height:34px;border-radius:50%;border:.5px solid #2A313C;color:var(--a);display:flex;align-items:center;justify-content:center;flex:none}
+.row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:.5px solid var(--b);cursor:pointer}
+.row:last-child{border:0}
+.grow{flex:1;min-width:0}
+.grow .sm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bars{display:flex;align-items:flex-end;gap:8px;height:56px;margin-top:14px}
+.bars div{flex:1;background:#232A35;border-radius:4px}
+.bars div.cur{background:var(--a)}
+.bl{display:flex;gap:8px;margin-top:4px}
+.bl span{flex:1;text-align:center;font-size:11px;color:var(--t3)}
+.f{margin-bottom:10px}
+label{display:block;font-size:11px;color:var(--t2);margin:0 0 4px}
+input,select,textarea{width:100%;background:var(--s);color:var(--t);border:.5px solid var(--b);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px}
+.ck{display:flex;gap:8px;align-items:center;font-size:14px;color:var(--t);margin:0 0 12px}
+.ck input{width:auto}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{padding:6px 12px;border-radius:999px;border:.5px solid #2A313C;color:var(--t2);font:inherit;font-size:12px;background:none}
+.chip.on{border:1px solid var(--a);color:var(--a)}
+.seg{display:flex;gap:6px}
+.seg button{flex:1;padding:9px 0;border-radius:10px;border:0;background:var(--s);color:var(--t2);font:inherit;font-size:12px}
+.seg button.on{background:var(--a);color:var(--bg);font-weight:500}
+.btn{display:block;width:100%;padding:13px;border:0;border-radius:12px;background:var(--a);color:var(--bg);font:inherit;font-weight:500;font-size:14px;margin-top:6px}
+.btn.ghost{background:var(--s);color:var(--t)}
+.btn.danger{background:none;color:var(--r)}
+nav{position:fixed;left:0;right:0;bottom:0;background:#12161C;border-top:.5px solid var(--b);display:flex;justify-content:space-around;align-items:center;padding:10px 0 calc(10px + env(safe-area-inset-bottom))}
+nav button{background:none;border:0;color:var(--t3);padding:8px 14px}
+nav button.on{color:var(--a)}
+nav button.plus{background:var(--a);color:var(--bg);width:44px;height:44px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.bd{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:20;display:flex;align-items:flex-end}
+.sh{background:#12161C;width:100%;max-width:480px;margin:0 auto;border-radius:24px 24px 0 0;padding:20px 20px calc(24px + env(safe-area-inset-bottom))}
+.sh .x{background:none;border:0;color:var(--t2)}
+.vc{display:flex;align-items:center;gap:12px;margin-bottom:10px;cursor:pointer;border:.5px solid var(--b)}
+.vc.on{border:1px solid var(--a);color:var(--a)}
+.vc.on .grow>div:first-child{color:var(--t)}
+.dash{border:.5px dashed #2A313C;background:none;text-align:center;color:var(--t2);cursor:pointer;font-size:13px}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2px solid var(--a);outline-offset:2px}
+</style>
+</head>
+<body><div id="app"></div>
+<script>
+const $=s=>document.querySelector(s),K='roda_v1';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let D;try{D=JSON.parse(localStorage.getItem(K))}catch(e){}
+D=D||{v:[{id:'v1',name:'O meu carro',km:0}],r:[],a:'v1'};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(D))}catch(e){alert('Não foi possível guardar os dados neste navegador.')}};
+const uid=()=>Math.random().toString(36).slice(2,9);
+const eur=n=>(n||0).toLocaleString('pt-PT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
+const num=n=>(n||0).toLocaleString('pt-PT');
+const fd=d=>new Date(d+'T12:00').toLocaleDateString('pt-PT',{day:'numeric',month:'short'});
+const today=()=>new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+const P={home:'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',list:'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',plus:'M12 5v14M5 12h14',car:'M5 17h14M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6v4h-3v-2H6v2H3zM7 13h.01M17 13h.01',sliders:'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6',fuel:'M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3M6 8h6',tool:'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',tire:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z',dots:'M5 12h.01M12 12h.01M19 12h.01',check:'M5 13l4 4L19 7',x:'M6 6l12 12M18 6L6 18'};
+const ic=k=>`<svg class="i" viewBox="0 0 24 24"><path d="${P[k]}"/></svg>`;
+const T={fuel:['Combustível','fuel'],service:['Revisão','tool'],tires:['Pneus','tire'],other:['Outro','dots']};
+const OS=['Seguro','Imposto','Inspeção','Reparação','Lavagem','Portagens','Estacionamento','Outro'];
+const WK=['Óleo','Filtro do óleo','Filtro do ar','Filtro do habitáculo','Filtro de combustível','Pastilhas de travão','Discos de travão','Velas','Líquido de travões','Correia de distribuição','Bateria','Outro'];
+let view='home',ed=null,dr={},sw=0,flt='all';
+const veh=()=>D.v.find(x=>x.id===D.a)||D.v[0];
+const recs=()=>D.r.filter(r=>r.vid===veh().id).sort((a,b)=>a.date<b.date?1:a.date>b.date?-1:(b.km||0)-(a.km||0));
+function stats(){const R=recs(),n=new Date(),months=[];
+ for(let k=5;k>=0;k--){const d=new Date(n.getFullYear(),n.getMonth()-k,1);months.push(d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0'))}
+ const mt=months.map(m=>R.filter(r=>r.date.startsWith(m)).reduce((s,r)=>s+r.cost,0));
+ let lf=null,acc=0,L=0,Km=0;
+ R.filter(r=>r.type==='fuel'&&r.km&&r.liters).sort((a,b)=>a.km-b.km).forEach(r=>{acc+=r.liters;if(r.full){if(lf!==null&&r.km>lf){L+=acc;Km+=r.km-lf}lf=r.km;acc=0}});
+ const kms=R.map(r=>r.km).filter(Boolean),span=kms.length?Math.max(...kms)-Math.min(...kms):0,tot=R.reduce((s,r)=>s+r.cost,0);
+ return{months,mt,cons:Km?L/Km*100:null,cpk:span>0?tot/span:null,km:Math.max(veh().km||0,...kms)}}
+function row(r){const dt=fd(r.date);let x='';
+ if(r.type==='fuel')x=(r.liters?' · '+r.liters+' L':'')+(r.ppl?' · '+(+r.ppl).toLocaleString('pt-PT',{minimumFractionDigits:3})+' €/L':'');
+ else if(r.type==='service')x=r.works&&r.works.length?' · '+r.works.join(', '):'';
+ else if(r.type==='tires')x=' · '+[r.pos,r.brand,r.size].filter(Boolean).join(' ');
+ else if(r.place)x=' · '+r.place;
+ return`<div class=row onclick="edit('${r.id}')"><div style="color:var(--a)">${ic(T[r.type][1])}</div><div class=grow><div>${r.type==='other'?esc(r.sub||'Outro'):T[r.type][0]}</div><div class=sm>${dt}${esc(x)}</div></div><b style="font-weight:500">${eur(r.cost)}</b></div>`}
+function home(){const v=veh(),s=stats(),R=recs(),c=s.mt[5],p=s.mt[4],mx=Math.max(...s.mt,1),df=p>0?Math.round((c-p)/p*100):null,nx=R.find(r=>r.type==='service'&&r.nextKm);
+ const mn=new Date().toLocaleDateString('pt-PT',{month:'long'}),lm=s.months.map(k=>new Date(k+'-15').toLocaleDateString('pt-PT',{month:'short'}).replace('.',''));
+ let rm='';if(nx){const left=nx.nextKm-s.km;rm=`<div class=card style="margin-top:10px;display:flex;gap:10px;align-items:center"><div style="color:var(--a)">${ic('tool')}</div><div class=sm style="color:var(--t)">${left>0?`Próxima revisão aos ${num(nx.nextKm)} km (faltam ${num(left)})`:`Revisão em atraso (${num(nx.nextKm)} km)`}</div></div>`}
+ return`<div class=top onclick="sw=1;render()"><div><div class=sm>${esc(v.name)} ▾</div><div class=sm>${num(s.km)} km</div></div><div class=av>${ic('car')}</div></div>
+<div class=sm style="margin-top:18px">Gasto em ${mn}</div><div class=big>${eur(c)}</div>
+${df===null?'':`<div class=sm style="color:${df<=0?'var(--g)':'var(--r)'}">${Math.abs(df)}% ${df<=0?'abaixo':'acima'} do mês anterior</div>`}
+<div class=bars>${s.mt.map((x,j)=>`<div class="${j==5?'cur':''}" style="height:${Math.max(x/mx*100,4)}%"></div>`).join('')}</div>
+<div class=bl>${lm.map(x=>`<span>${x}</span>`).join('')}</div>
+<div class=grid2 style="margin-top:14px"><div class=card><div class=sm>Consumo médio</div><div class=m>${s.cons?s.cons.toFixed(1).replace('.',',')+' L/100':'—'}</div></div><div class=card><div class=sm>Custo por km</div><div class=m>${s.cpk?eur(s.cpk):'—'}</div></div></div>${rm}
+<div class=h2>Últimos registos</div>${R.length?`<div class=card style="padding:4px 12px">${R.slice(0,4).map(row).join('')}</div>`:'<div class="card sm">Ainda não há registos. Toca em + para adicionar o primeiro.</div>'}`}
+function list(){const R=recs().filter(r=>flt==='all'||r.type===flt),t=R.reduce((s,r)=>s+r.cost,0);
+ return`<h1>Registos</h1><div class=sm style="margin:2px 0 12px">${esc(veh().name)} · ${R.length} registos · ${eur(t)}</div>
+<div class=chips>${[['all','Tudo'],...Object.entries(T).map(([k,x])=>[k,x[0]])].map(([k,n])=>`<button class="chip ${flt===k?'on':''}" onclick="flt='${k}';render()">${n}</button>`).join('')}</div>
+${R.length?`<div class=card style="padding:4px 12px;margin-top:12px">${R.map(row).join('')}</div>`:'<div class="card sm" style="margin-top:12px">Nada por aqui. Toca em + para adicionar um registo.</div>'}`}
+function form(){const d=dr,t=d.type,inp=(l,k,ty,ph='')=>`<div class=f><label>${l}</label><input type=${ty} ${ty=='number'?'step=any inputmode=decimal':''} placeholder="${ph}" value="${esc(d[k]??'')}" oninput="u('${k}',this.value,${ty=='number'})"></div>`;
+ return`<h1>${ed?'Editar registo':'Novo registo'}</h1><div class=sm style="margin:2px 0 14px">${esc(veh().name)}</div>
+<div class=seg>${Object.keys(T).map(k=>`<button class="${t===k?'on':''}" onclick="dr.type='${k}';render()">${T[k][0]}</button>`).join('')}</div>
+<div class=grid2 style="margin-top:14px">${inp('Data','date','date')}${inp('Quilómetros','km','number',num(stats().km))}</div>
+${t==='fuel'?`<div class=grid2>${inp('Litros','liters','number')}${inp('Preço por litro (€)','ppl','number','1,759')}</div><label class=ck><input type=checkbox ${d.full!==false?'checked':''} onchange="dr.full=this.checked"> Depósito cheio</label>`:''}
+${t==='service'?`<label>Trabalhos efetuados</label><div class=chips style="margin-bottom:12px">${WK.map(w=>`<button class="chip ${(d.works||[]).includes(w)?'on':''}" onclick="tw('${w}',this)">${w}</button>`).join('')}</div>${inp('Próxima revisão (km)','nextKm','number')}`:''}
+${t==='tires'?`<div class=f><label>Posição</label><select onchange="dr.pos=this.value">${['Todos','Frente','Trás'].map(o=>`<option ${d.pos===o?'selected':''}>${o}</option>`).join('')}</select></div><div class=grid2>${inp('Marca','brand','text')}${inp('Medida','size','text','205/55 R16')}</div>`:''}
+${t==='other'?`<div class=f><label>Tipo de despesa</label><select onchange="dr.sub=this.value">${OS.map(o=>`<option ${d.sub===o?'selected':''}>${o}</option>`).join('')}</select></div>`:''}
+${inp('Local / oficina','place','text')}
+<div class=f><label>Custo total (€)</label><input id=cost type=number step=any inputmode=decimal value="${d.cost??''}" oninput="u('cost',this.value,true)"></div>
+<div class=f><label>Notas</label><textarea rows=2 oninput="dr.notes=this.value">${esc(d.notes||'')}</textarea></div>
+<button class=btn onclick="sv()">Guardar registo</button>
+<button class="btn ghost" onclick="go('list')">Cancelar</button>
+${ed?`<button class="btn danger" onclick="del()">Eliminar registo</button>`:''}`}
+function settings(){return`<h1>Definições</h1><div class=h2>Viaturas</div>${D.v.map(v=>`<div class=card style="margin-bottom:10px"><div class=f><label>Nome</label><input value="${esc(v.name)}" oninput="uv('${v.id}','name',this.value)"></div><div class=grid2><div class=f><label>Matrícula</label><input value="${esc(v.plate||'')}" oninput="uv('${v.id}','plate',this.value)"></div><div class=f><label>Km atuais</label><input type=number inputmode=numeric value="${v.km||''}" oninput="uv('${v.id}','km',+this.value)"></div></div>${D.v.length>1?`<button class="btn danger" style="padding:4px;margin:0" onclick="dv('${v.id}')">Eliminar viatura e registos</button>`:''}</div>`).join('')}
+<button class="btn ghost" onclick="av()">Adicionar viatura</button>
+<div class=h2>Cópia de segurança</div><div class=sm style="margin-bottom:10px">Os dados ficam só neste telemóvel. Exporta uma cópia de vez em quando.</div>
+<button class="btn ghost" onclick="ex()">Exportar cópia (JSON)</button><button class="btn ghost" onclick="csv()">Exportar para Excel (CSV)</button>
+<label class="btn ghost" style="text-align:center;color:var(--t);font-size:14px;margin-bottom:0">Importar cópia<input type=file accept=".json,application/json" hidden onchange="imp(this)"></label>`}
+const sheet=()=>sw?`<div class=bd onclick="sw=0;render()"><div class=sh onclick="event.stopPropagation()"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h1>As tuas viaturas</h1><button class=x onclick="sw=0;render()" aria-label="Fechar">${ic('x')}</button></div>${D.v.map(v=>`<div class="card vc ${v.id===veh().id?'on':''}" onclick="D.a='${v.id}';save();sw=0;view='home';render()"><div class=av>${ic('car')}</div><div class=grow><div>${esc(v.name)}</div><div class=sm>${esc(v.plate||'')}${v.plate?' · ':''}${num(Math.max(v.km||0,...D.r.filter(r=>r.vid===v.id).map(r=>r.km||0)))} km</div></div>${v.id===veh().id?ic('check'):''}</div>`).join('')}<div class="card dash" onclick="av()">+ Adicionar viatura</div></div></div>`:'';
+const nav=()=>`<nav>${[['home','Início'],['list','Registos']].map(([k,n])=>`<button class="${view===k?'on':''}" onclick="go('${k}')" aria-label="${n}">${ic(k)}</button>`).join('')}<button class=plus onclick="nw()" aria-label="Novo registo">${ic('plus')}</button><button onclick="sw=1;render()" aria-label="Viaturas">${ic('car')}</button><button class="${view==='set'?'on':''}" onclick="go('set')" aria-label="Definições">${ic('sliders')}</button></nav>`;
+function render(){const f={home,list,form,set:settings}[view];$('#app').innerHTML=f()+sheet()+nav()}
+function go(v){view=v;ed=null;scrollTo(0,0);render()}
+function nw(){ed=null;dr={type:'fuel',date:today(),works:[]};view='form';scrollTo(0,0);render()}
+function edit(id){const r=D.r.find(x=>x.id===id);ed=id;dr={...r,works:[...(r.works||[])]};view='form';scrollTo(0,0);render()}
+function u(k,v,n){dr[k]=n?(v===''?'':+v):v;if(k==='liters'||k==='ppl')calc()}
+function calc(){if(dr.liters&&dr.ppl){dr.cost=+(dr.liters*dr.ppl).toFixed(2);$('#cost').value=dr.cost}}
+function tw(w,el){dr.works=dr.works||[];const x=dr.works.indexOf(w);x<0?dr.works.push(w):dr.works.splice(x,1);el.classList.toggle('on')}
+function sv(){const d={...dr};if(!d.date)return alert('Indica a data.');
+ d.cost=+d.cost||0;d.km=+d.km||0;if(d.liters!=null)d.liters=+d.liters||0;if(d.ppl!=null)d.ppl=+d.ppl||0;if(d.nextKm!=null)d.nextKm=+d.nextKm||0;
+ if(d.type==='fuel')d.full=d.full!==false;if(d.type==='tires')d.pos=d.pos||'Todos';if(d.type==='other')d.sub=d.sub||OS[0];
+ if(ed)D.r=D.r.map(r=>r.id===ed?{...d,id:ed,vid:r.vid}:r);else D.r.push({...d,id:uid(),vid:veh().id});
+ const v=veh();if(d.km>(v.km||0))v.km=d.km;save();go('list')}
+function del(){if(confirm('Eliminar este registo?')){D.r=D.r.filter(r=>r.id!==ed);save();go('list')}}
+function uv(id,k,v){D.v.find(a=>a.id===id)[k]=v;save()}
+function av(){const n=prompt('Nome da viatura?');if(n&&n.trim()){const id=uid();D.v.push({id,name:n.trim(),km:0});D.a=id;save();sw=0;render()}}
+function dv(id){if(confirm('Eliminar esta viatura e todos os seus registos?')){D.v=D.v.filter(v=>v.id!==id);D.r=D.r.filter(r=>r.vid!==id);if(D.a===id)D.a=D.v[0].id;save();render()}}
+async function dl(n,t,m){const f=new File([t],n,{type:m});if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});return}catch(e){if(e.name==='AbortError')return}}const a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=n;a.click()}
+function ex(){dl('roda-copia-'+today()+'.json',JSON.stringify(D),'application/json')}
+function csv(){const q=s=>'"'+String(s??'').replace(/"/g,'""')+'"',c=n=>n==null||n===''?'':String(n).replace('.',','),H=['Data','Viatura','Tipo','Detalhe','Km','Custo','Litros','Preço/L','Trabalhos','Local','Notas'];
+ const rows=D.r.slice().sort((a,b)=>a.date<b.date?-1:1).map(r=>[r.date,(D.v.find(v=>v.id===r.vid)||{}).name,T[r.type][0],r.type==='other'?r.sub:r.type==='tires'?[r.pos,r.brand,r.size].filter(Boolean).join(' '):'',r.km,c(r.cost),c(r.liters),c(r.ppl),(r.works||[]).join(', '),r.place,r.notes].map(q).join(';'));
+ dl('roda-registos.csv','\ufeff'+[H.map(q).join(';'),...rows].join('\n'),'text/csv')}
+function imp(el){const f=el.files[0];if(!f)return;f.text().then(t=>{try{const j=JSON.parse(t);if(!Array.isArray(j.v)||!j.v.length||!Array.isArray(j.r))throw 0;if(confirm('Substituir todos os dados atuais pela cópia?')){D=j;if(!D.v.find(v=>v.id===D.a))D.a=D.v[0].id;save();go('home')}}catch(e){alert('Ficheiro inválido.')}})}
+render();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
+</script></body></html>
