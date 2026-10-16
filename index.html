@@ -21,24 +21,21 @@ h1{font-size:20px;font-weight:500;margin:0}
 .sm{font-size:12px;color:var(--t2)}
 .sm2{font-size:12px;font-weight:400;opacity:.75}
 .big{font-size:34px;font-weight:500;line-height:1.2}
-.xl{font-size:48px;font-weight:500;line-height:1.1}
 .m{font-size:17px;font-weight:500;margin-top:2px}
 .card{background:var(--s);border-radius:14px;padding:12px}
 .grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 .top{display:flex;justify-content:space-between;align-items:center}
 .av{width:34px;height:34px;border-radius:50%;border:.5px solid var(--b);color:var(--a);display:flex;align-items:center;justify-content:center;flex:none;cursor:pointer}
 .bt{background:none;position:relative;padding:0}
 .bg{position:absolute;top:-4px;right:-4px;background:var(--r);color:#fff;font-size:10px;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center}
 .row{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:.5px solid var(--b);cursor:pointer}
 .row:last-child{border:0}
+.bar{width:3px;height:32px;border-radius:2px;flex:none}
+.ci{display:flex;flex:none}
 .al{display:flex;gap:10px;align-items:center;padding:6px 0}
 .grow{flex:1;min-width:0}
-.grow .sm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.bars{display:flex;align-items:flex-end;gap:8px;height:56px;margin-top:14px}
-.bars div{flex:1;background:var(--b);border-radius:4px}
-.bars div.cur{background:var(--a)}
-.bl{display:flex;gap:8px;margin-top:4px}
-.bl span{flex:1;text-align:center;font-size:11px;color:var(--t2)}
+.grow>.sm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .f{margin-bottom:10px}
 label{display:block;font-size:11px;color:var(--t2);margin:0 0 4px}
 input,select,textarea{width:100%;min-width:0;background:var(--s);color:var(--t);border:.5px solid var(--b);border-radius:12px;padding:10px 12px;font:inherit;font-size:16px}
@@ -52,15 +49,24 @@ input[type=date]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
 .chip{padding:6px 12px;border-radius:999px;border:.5px solid var(--b);color:var(--t2);font:inherit;font-size:12px;background:none}
 .chip.on{border:1px solid var(--a);color:var(--a)}
 .seg{display:flex;gap:6px}
-.seg button{flex:1;padding:9px 0;border-radius:10px;border:0;background:var(--s);color:var(--t2);font:inherit;font-size:12px}
-.seg button.on{background:var(--a);color:var(--bg);font-weight:500}
+.seg button{flex:1;padding:9px 0;border-radius:10px;border:0;background:var(--s);color:var(--t2);font:inherit;font-size:11px}
+.seg button.on{color:var(--bg);font-weight:500}
 .btn{display:block;width:100%;padding:13px;border:0;border-radius:12px;background:var(--a);color:var(--bg);font:inherit;font-weight:500;font-size:14px;margin-top:8px}
 .btn.ghost{background:var(--s);color:var(--t)}
 .btn.danger{background:none;color:var(--r)}
-.fb{display:flex;flex-direction:column;align-items:center;gap:2px;padding:16px;font-size:16px}
+.bk{background:none;border:0;color:var(--a);font:inherit;font-size:14px;padding:0 0 6px}
 .q4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
-.q4 button{background:var(--s);border:0;border-radius:14px;color:var(--a);padding:12px 4px;font:inherit;font-size:11px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.q4 button{border:0;border-radius:14px;padding:12px 2px;font:inherit;font-size:10px;display:flex;flex-direction:column;align-items:center;gap:6px}
 .q4 span{color:var(--t)}
+.lg{display:flex;align-items:center;gap:6px;font-size:12px}
+.lg i{width:8px;height:8px;border-radius:50%}
+.cb{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;flex:none}
+.pl{width:30px;height:30px;border-radius:50%;border:0;color:#0E1116;font-size:18px;padding:0;flex:none}
+.tg{font-size:10px;padding:1px 7px;border-radius:999px}
+.tl{margin-top:14px;position:relative;padding-left:18px}
+.tl:before{content:'';position:absolute;left:5px;top:4px;bottom:4px;width:1px;background:var(--b)}
+.ti{position:relative;margin-bottom:14px;cursor:pointer}
+.ti i{position:absolute;left:-18px;top:3px;width:11px;height:11px;border-radius:50%;border:2px solid var(--bg)}
 nav{position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:.5px solid var(--b);display:flex;justify-content:space-around;align-items:center;padding:8px 0 calc(8px + env(safe-area-inset-bottom))}
 nav button{background:none;border:0;color:var(--t2);padding:8px 12px}
 nav button.on{color:var(--a)}
@@ -79,13 +85,20 @@ svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stro
 .pw span{display:flex;gap:3px;padding:5px;border-radius:6px;border:.5px solid rgba(128,128,128,.4)}
 .pw i{width:10px;height:18px;border-radius:3px}
 .tr{height:6px;background:var(--b);border-radius:3px;margin:4px 0 10px}
-.tr i{display:block;height:100%;background:var(--a);border-radius:3px}
+.tr i{display:block;height:100%;border-radius:3px}
+.sb2{display:flex;align-items:flex-end;gap:4px;height:70px;margin-top:14px}
+.sb2>div{flex:1;display:flex;flex-direction:column-reverse;border-radius:3px;overflow:hidden}
+.sb2 i{display:block}
+.bl{display:flex;gap:4px;margin-top:4px}
+.bl span{flex:1;text-align:center;font-size:11px;color:var(--t2)}
 .cg{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:4px}
 .cg>b{font-size:11px;color:var(--t2);text-align:center;font-weight:400}
 .cl,.cy{position:relative;aspect-ratio:1;border:0;padding:0;background:var(--s);color:var(--t);font:inherit;font-size:13px}
 .cl{border-radius:8px}.cy{border-radius:2px}
 .cl i,.cy i{position:absolute;inset:0;background:var(--a);border-radius:inherit}
 .cl span{position:relative}
+.cl u{position:absolute;bottom:3px;left:0;right:0;display:flex;justify-content:center;gap:2px;text-decoration:none}
+.cl u b{width:4px;height:4px;border-radius:50%}
 .cl.sel,.cy.sel{outline:2px solid var(--t);outline-offset:1px}
 .cl.td{box-shadow:inset 0 0 0 1px var(--t2)}
 .cyg{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,auto);gap:2px}
@@ -98,124 +111,142 @@ button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-vis
 <script>
 const $=s=>document.querySelector(s),K='roda_v1';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
 let D;try{D=JSON.parse(localStorage.getItem(K))}catch(e){}
 D=D||{v:[{id:'v1',name:'O meu carro',km:0}],r:[],a:'v1'};
-D.m=D.m||[];D.s=Object.assign({l:1,t:0},D.s);
+D.m=D.m||[];D.s=Object.assign({l:'G',t:0,ld:30,lk:1000},D.s);D.s.l=({1:'B',3:'H',8:'G',9:'E'})[D.s.l]||D.s.l;
+D.r.forEach(r=>{if(r.type==='tires'){r.type='service';r.sub='Pneus'}else if(r.type==='service'&&!r.sub)r.sub='Revisão';else if(r.type==='other'){const s=r.sub||'Outro';if(['Seguro','Imposto','Inspeção'].includes(s)){r.type='docs';r.sub=s==='Imposto'?'Imposto (IUC)':s}else if(s==='Reparação'){r.type='service';r.sub=s}else{r.type='acc';r.sub=s}}});
 const save=()=>{try{localStorage.setItem(K,JSON.stringify(D))}catch(e){alert('Não foi possível guardar os dados neste navegador.')}};
 const uid=()=>Math.random().toString(36).slice(2,9);
 const eur=n=>(n||0).toLocaleString('pt-PT',{minimumFractionDigits:2,maximumFractionDigits:2})+' €';
 const num=n=>(n||0).toLocaleString('pt-PT');
-const fd=d=>new Date(d+'T12:00').toLocaleDateString('pt-PT',{day:'numeric',month:'short'});
+const fd=d=>(+d.slice(8))+' '+MN[+d.slice(5,7)-1];
 const iso=d=>d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
 const today=()=>iso(new Date());
+const pk=k=>{const n=new Date();return iso(new Date(n.getFullYear(),n.getMonth()-k,1)).slice(0,7)};
 const PAL=[['Ouro noturno','#0E1116','#171B22','#232A35','#F3F4F6','#8B94A3','#E8B45A'],['Azul gelo','#0B1220','#131C2E','#1E2B42','#EAF1FB','#8A9BB5','#5AA9FF'],['Verde esmeralda','#0A1210','#111C19','#1B2B26','#EAF6F1','#86A398','#3DDC97'],['Vermelho piloto','#120C0D','#1C1214','#2C1D20','#F6ECEC','#A38A8C','#F0554F'],['Violeta','#0F0D18','#181526','#262238','#EFEDFA','#9591B0','#9B8CFF'],['Grafite e laranja','#121212','#1E1E1E','#2C2C2C','#F2F2F2','#8E8E8E','#FF8A3D'],['Preto puro (OLED)','#000000','#111111','#222222','#F5F5F5','#8A8A8A','#E5E5E5'],['Marinho e turquesa','#0A1628','#11233D','#1B3354','#E8F1FA','#8099B3','#2DD4BF']];
 function ap(){const p=PAL[D.s.t]||PAL[0],r=document.documentElement.style;['bg','s','b','t','t2','a'].forEach((k,i)=>r.setProperty('--'+k,p[i+1]));$('meta[name=theme-color]').content=p[1]}
-const LY={1:['Painel clássico','Gráfico, indicadores e últimos registos.'],3:['Combustível em destaque','Botão grande para registar abastecimentos.'],8:['Ações rápidas','Quatro botões de registo no topo.'],9:['Minimalista','Só tipografia e linhas, sem cartões.']};
-const P={home:'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',list:'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',car:'M5 17h14M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6v4h-3v-2H6v2H3zM7 13h.01M17 13h.01',moto:'M2 17a3 3 0 1 0 6 0 3 3 0 1 0-6 0M16 17a3 3 0 1 0 6 0 3 3 0 1 0-6 0M5 17l4-7h5l3 7M10 7h3',sliders:'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6',fuel:'M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3M6 8h6',tool:'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',tire:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18zM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6z',dots:'M5 12h.01M12 12h.01M19 12h.01',check:'M5 13l4 4L19 7',x:'M6 6l12 12M18 6L6 18',bell:'M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4',chart:'M4 20V10M10 20V4M16 20v-7M22 20H2'};
-const ic=k=>`<svg class="i" viewBox="0 0 24 24"><path d="${P[k]}"/></svg>`;
-const T={fuel:['Combustível','fuel'],service:['Revisão','tool'],tires:['Pneus','tire'],other:['Outro','dots']};
-const OS=['Seguro','Imposto','Inspeção','Reparação','Lavagem','Portagens','Estacionamento','Outro'];
+const LY={A:['Anel por categoria','Gráfico circular do mês com legenda.'],B:['Barra empilhada','Uma barra repartida por categoria e um cartão para cada uma.'],C:['Separadores por categoria','Cada categoria com o seu ecrã e detalhe.'],D:['Cartões por categoria','Um cartão grande por categoria, com botão + .'],E:['Linha do tempo','Diário do carro com pontos coloridos.'],F:['Mosaico de categorias','Quatro mosaicos grandes e tocáveis.'],G:['Botões de registo','Quatro botões coloridos e lista por período.'],H:['Combustível primeiro','Preço por litro e consumo em destaque.'],I:['Extrato','Estilo extrato bancário com etiquetas.'],J:['Tendência por categoria','Mini-gráfico de 6 meses por categoria.']};
+if(!LY[D.s.l])D.s.l='G';
+const P={home:'M3 11l9-8 9 8v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z',list:'M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01',car:'M5 17h14M3 13l2-6a2 2 0 0 1 2-1h10a2 2 0 0 1 2 1l2 6v4h-3v-2H6v2H3zM7 13h.01M17 13h.01',moto:'M2 17a3 3 0 1 0 6 0 3 3 0 1 0-6 0M16 17a3 3 0 1 0 6 0 3 3 0 1 0-6 0M5 17l4-7h5l3 7M10 7h3',sliders:'M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6',fuel:'M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3M6 8h6',tool:'M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.4-.6-.6-2.4z',drop:'M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z',file:'M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6',check:'M5 13l4 4L19 7',x:'M6 6l12 12M18 6L6 18',bell:'M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9M10 21h4',chart:'M4 20V10M10 20V4M16 20v-7M22 20H2'};
+const ic=(k,s=22)=>`<svg class="i" style="width:${s}px;height:${s}px" viewBox="0 0 24 24"><path d="${P[k]}"/></svg>`;
+const T={fuel:['Combustível','fuel','#E8B45A'],service:['Oficina','tool','#5AA9FF'],acc:['Acessórios','drop','#3DDC97'],docs:['Documentos','file','#9B8CFF']};
+const SUB={service:['Revisão','Pneus','Reparação','Outro'],acc:['Limpa-vidros','Escovas','Ambientador','Tapetes','Lavagem','Portagens','Estacionamento','Outro'],docs:['Seguro','Imposto (IUC)','Inspeção','Outro']};
 const WK=['Óleo','Filtro do óleo','Filtro do ar','Filtro do habitáculo','Filtro de combustível','Pastilhas de travão','Discos de travão','Velas','Líquido de travões','Correia de distribuição','Bateria','Outro'];
-const MN=['jan','fev','mar','abr','mai','jun','jul','ago','set','out','nov','dez'];
-let view='home',ed=null,dr={},fo=['P','L','T'],sw=0,ft='all',fq='',fp='all',fv='cur',sa='cur',sy=new Date().getFullYear(),stt='r',cm=new Date(),cv='m',sd=today(),em=null,dm={};
+const TY=Object.keys(T),cc=t=>T[t][2];
+let view='home',ed=null,dr={},fo=['P','L','T'],sw=0,ft='all',fq='',fp='all',fv='cur',sa='cur',sy=new Date().getFullYear(),stt='r',cm=new Date(),cv='m',sd=today(),em=null,dm={},ht='all';
 const veh=()=>D.v.find(x=>x.id===D.a)||D.v[0];
 const vn=id=>(D.v.find(v=>v.id===id)||{}).name||'';
 const cmp=(a,b)=>a.date<b.date?1:a.date>b.date?-1:(b.km||0)-(a.km||0);
 const recs=(id=veh().id)=>D.r.filter(r=>r.vid===id).sort(cmp);
 const vkm=id=>{const v=D.v.find(x=>x.id===id);return Math.max((v&&v.km)||0,...D.r.filter(r=>r.vid===id).map(r=>r.km||0))};
-const lab=r=>r.type==='other'?(r.sub||'Outro'):T[r.type][0];
+const sumT=(R,t)=>R.filter(r=>!t||r.type===t).reduce((s,r)=>s+r.cost,0);
+const lab=r=>r.type==='fuel'?'Combustível':(r.sub||T[r.type][0]);
+const ttl=r=>r.type==='fuel'?((r.place?r.place+' · ':'')+(r.liters?r.liters+' L':'Combustível')):r.type==='service'&&r.sub==='Revisão'&&r.km?'Revisão · '+num(r.km)+' km':lab(r);
+const xt=r=>{if(r.type==='fuel')return r.ppl?(+r.ppl).toLocaleString('pt-PT',{minimumFractionDigits:3})+' €/L':'';if(r.type==='service'){if(r.sub==='Pneus')return[r.pos,r.brand,r.size].filter(Boolean).join(' ');if(r.sub==='Revisão')return(r.works||[]).join(', ')}return r.place||''};
 function cons(id){let lf=null,acc=0,L=0,Km=0,s=[];D.r.filter(r=>r.vid===id&&r.type==='fuel'&&r.km&&r.liters).sort((a,b)=>a.km-b.km).forEach(r=>{acc+=r.liters;if(r.full){if(lf!==null&&r.km>lf){L+=acc;Km+=r.km-lf;s.push(acc/(r.km-lf)*100)}lf=r.km;acc=0}});return{avg:Km?L/Km*100:null,s}}
 function cpk(id){const R=D.r.filter(r=>r.vid===id),k=R.map(r=>r.km).filter(Boolean),sp=k.length?Math.max(...k)-Math.min(...k):0;return sp>0?R.reduce((s,r)=>s+r.cost,0)/sp:null}
-const mon=R=>{const n=new Date();return[5,4,3,2,1,0].map(k=>{const d=new Date(n.getFullYear(),n.getMonth()-k,1),p=iso(d).slice(0,7);return R.filter(r=>r.date.startsWith(p)).reduce((s,r)=>s+r.cost,0)})};
-const ml=()=>{const n=new Date();return[5,4,3,2,1,0].map(k=>MN[new Date(n.getFullYear(),n.getMonth()-k,1).getMonth()])};
-function rs(m){let st=0,tx=[];const t0=new Date(today()+'T00:00');
- if(m.date){const dl=Math.round((new Date(m.date+'T00:00')-t0)/864e5);tx.push(dl<0?`atrasado ${-dl} d`:dl===0?'hoje':`em ${dl} d`);st=Math.max(st,dl<0?2:dl<=30?1:0)}
- if(m.km){const kl=m.km-vkm(m.vid);tx.push(kl<=0?`atrasado ${num(-kl)} km`:`faltam ${num(kl)} km`);st=Math.max(st,kl<=0?2:kl<=1000?1:0)}
+const sp=(v,c='var(--a)')=>{if(v.length<2)return'<div class=sm style="padding:8px 0">Dados insuficientes</div>';const mn=Math.min(...v),mx=Math.max(...v),r=mx-mn||1;return`<svg viewBox="0 0 300 60" preserveAspectRatio="none" style="width:100%;height:50px;margin-top:6px"><polyline points="${v.map((y,i)=>`${i/(v.length-1)*300},${56-(y-mn)/r*50}`).join(' ')}" fill="none" stroke="${c}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`};
+function rs(m){let st=0,tx=[];const t0=new Date(today()+'T00:00'),ld=+m.leadD||30,lk=+m.leadK||1000;
+ if(m.date){const dl=Math.round((new Date(m.date+'T00:00')-t0)/864e5);tx.push(dl<0?`prazo passou há ${-dl} d`:dl===0?'termina hoje':`até ${fd(m.date)} · faltam ${dl} d`);st=Math.max(st,dl<0?2:dl<=ld?1:0)}
+ if(m.km){const kl=m.km-vkm(m.vid);tx.push(kl<=0?`passou ${num(-kl)} km`:`aos ${num(m.km)} km · faltam ${num(kl)}`);st=Math.max(st,kl<=0?2:kl<=lk?1:0)}
  return{st,tx:tx.join(' · ')}}
 const urgent=()=>D.m.map(m=>({m,...rs(m)})).filter(x=>x.st>0).sort((a,b)=>b.st-a.st);
-function row(r,sv){let x='';
- if(r.type==='fuel')x=(r.liters?' · '+r.liters+' L':'')+(r.ppl?' · '+(+r.ppl).toLocaleString('pt-PT',{minimumFractionDigits:3})+' €/L':'');
- else if(r.type==='service')x=r.works&&r.works.length?' · '+r.works.join(', '):'';
- else if(r.type==='tires')x=' · '+[r.pos,r.brand,r.size].filter(Boolean).join(' ');
- else if(r.place)x=' · '+r.place;
- return`<div class=row onclick="edit('${r.id}')"><div style="color:var(--a)">${ic(T[r.type][1])}</div><div class=grow><div>${esc(lab(r))}</div><div class=sm>${fd(r.date)}${sv?' · '+esc(vn(r.vid)):''}${esc(x)}</div></div><b style="font-weight:500">${eur(r.cost)}</b></div>`}
-const hd=()=>{const v=veh(),u=urgent().length,k=v.kind==='moto'?'moto':'car';return`<div class=top><div onclick="sw=1;render()" style="cursor:pointer"><div class=sm>${esc(v.name)} ▾</div><div class=sm>${num(vkm(v.id))} km</div></div><div style="display:flex;gap:10px"><button class="av bt" onclick="go('rem')" aria-label="Lembretes">${ic('bell')}${u?`<b class=bg>${u}</b>`:''}</button><div class=av onclick="sw=1;render()">${ic(k)}</div></div></div>`};
+const row=(r,bar,sv)=>{const x=xt(r),c=cc(r.type);return`<div class=row onclick="edit('${r.id}')">${bar?`<i class=bar style="background:${c}"></i>`:`<span class=ci style="color:${c}">${ic(T[r.type][1],18)}</span>`}<div class=grow><div>${esc(ttl(r))}</div><div class=sm>${fd(r.date)} · ${T[r.type][0]}${sv?' · '+esc(vn(r.vid)):''}${x?' · '+esc(x):''}</div></div><b style="font-weight:500">${eur(r.cost)}</b></div>`};
+const hd=()=>{const v=veh(),u=urgent().length;return`<div class=top><div onclick="sw=1;render()" style="cursor:pointer"><div class=sm>${esc(v.name)} ▾</div><div class=sm>${num(vkm(v.id))} km</div></div><div style="display:flex;gap:10px"><button class="av bt" onclick="go('rem')" aria-label="Lembretes">${ic('bell')}${u?`<b class=bg>${u}</b>`:''}</button><div class=av onclick="sw=1;render()">${ic(v.kind==='moto'?'moto':'car')}</div></div></div>`};
 const al=()=>{const u=urgent();return u.length?`<div class=card style="margin-top:14px;cursor:pointer" onclick="go('rem')">${u.slice(0,3).map(x=>`<div class=al><span style="color:${x.st>1?'var(--r)':'var(--a)'}">${ic('bell')}</span><div class=grow><div>${esc(x.m.title)} · ${esc(vn(x.m.vid))}</div><div class=sm>${x.tx}</div></div></div>`).join('')}${u.length>3?`<div class=sm>+${u.length-3} mais</div>`:''}</div>`:''};
-const qk=()=>`<div class=chips style="margin-top:14px">${['service','tires','other'].map(k=>`<button class=chip onclick="nw('${k}')">+ ${T[k][0]}</button>`).join('')}</div>`;
-function home(){const v=veh(),R=recs(),mt=mon(R),c=mt[5],p=mt[4],mx=Math.max(...mt,1),df=p>0?Math.round((c-p)/p*100):null,L=D.s.l,lf=R.find(r=>r.type==='fuel'),
- mn=new Date().toLocaleDateString('pt-PT',{month:'long'}),cs=cons(v.id).avg,ck=cpk(v.id),csT=cs?cs.toFixed(1).replace('.',',')+' L/100':'—',ckT=ck?eur(ck):'—';
+const qb=()=>TY.map(t=>`<button onclick="nw('${t}')" style="background:${cc(t)}22;color:${cc(t)}">${ic(T[t][1],20)}<span>${T[t][0]}</span></button>`).join('');
+function home(){const R=recs();if(!R.length)return hd()+al()+`<div class=card style="margin-top:18px"><div class=m>Bem-vindo ao Roda</div><div class=sm style="margin:4px 0 12px">Ainda não há registos. Começa por aqui:</div><div class=q4 style="margin:0">${qb()}</div></div>`;
+ const v=veh(),n=new Date(),M=R.filter(r=>r.date.startsWith(pk(0))),SUM=sumT(M),TOT={};TY.forEach(t=>TOT[t]=sumT(M,t));
+ const mn=n.toLocaleDateString('pt-PT',{month:'long'}),pv=sumT(R.filter(r=>r.date.startsWith(pk(1)))),df=pv>0?Math.round((SUM-pv)/pv*100):null;
  const dfx=df===null?'':`<div class=sm style="color:${df<=0?'var(--g)':'var(--r)'}">${Math.abs(df)}% ${df<=0?'abaixo':'acima'} do mês anterior</div>`;
- const kp=`<div class=grid2 style="margin-top:14px"><div class=card><div class=sm>Consumo médio</div><div class=m>${csT}</div></div><div class=card><div class=sm>Custo por km</div><div class=m>${ckT}</div></div></div>`;
- const rc=(n,pl)=>R.length?`<div class="${pl?'':'card'}" style="padding:${pl?0:'4px 12px'}">${R.slice(0,n).map(r=>row(r)).join('')}</div>`:'<div class="card sm">Ainda não há registos. Toca no botão de combustível para adicionar o primeiro.</div>';
- let b=hd();
- if(L===9)b+=`<div class=sm style="margin-top:28px">Gasto em ${mn}</div><div class=xl>${eur(c)}</div>${dfx}<div class=sm style="margin-top:24px">Consumo médio</div><div class=big style="font-size:28px">${csT}</div><div class=sm style="margin-top:14px">Custo por km</div><div class=big style="font-size:28px">${ckT}</div>${al()}<div class=h2>Últimos registos</div>${rc(5,1)}${qk()}`;
- else if(L===3)b+=`<div class=sm style="margin-top:18px">Gasto em ${mn}</div><div class=big style="font-size:28px">${eur(c)}</div>${dfx}<button class="btn fb" style="margin-top:14px" onclick="nw('fuel')">${ic('fuel')}Registar abastecimento${lf?`<span class=sm2>Último: ${fd(lf.date)}${lf.ppl?' · '+(+lf.ppl).toLocaleString('pt-PT',{minimumFractionDigits:3})+' €/L':''}</span>`:''}</button>${kp}${al()}${qk()}<div class=h2>Últimos registos</div>${rc(3)}`;
- else if(L===8)b+=`<div class=sm style="margin-top:18px">Gasto em ${mn}</div><div class=big>${eur(c)}</div>${dfx}<div class=q4>${Object.keys(T).map(k=>`<button onclick="nw('${k}')">${ic(T[k][1])}<span>${T[k][0]}</span></button>`).join('')}</div>${kp}${al()}<div class=h2>Últimos registos</div>${rc(3)}`;
- else b+=`<div class=sm style="margin-top:18px">Gasto em ${mn}</div><div class=big>${eur(c)}</div>${dfx}<div class=bars>${mt.map((x,j)=>`<div class="${j==5?'cur':''}" style="height:${Math.max(x/mx*100,4)}%"></div>`).join('')}</div><div class=bl>${ml().map(x=>`<span>${x}</span>`).join('')}</div>${qk()}${kp}${al()}<div class=h2>Últimos registos</div>${rc(4)}`;
- return b}
+ const mt=(b=30)=>`<div class=sm style="margin-top:14px">Gasto em ${mn}</div><div style="font-size:${b}px;font-weight:500;line-height:1.2">${eur(SUM)}</div>${dfx}`;
+ const rr=(a,bar)=>a.map(r=>row(r,bar)).join('');
+ const chipsHt=()=>[['all','Tudo'],...TY.map(t=>[t,T[t][0]])];
+ const Ls={
+ A:()=>{let cum=0;const seg=TY.filter(t=>TOT[t]>0).map(t=>{const l=TOT[t]/SUM*251.3,s=`<circle cx="50" cy="50" r="40" fill="none" stroke="${cc(t)}" stroke-width="12" stroke-dasharray="${l} ${251.3-l}" stroke-dashoffset="${-cum}" transform="rotate(-90 50 50)"/>`;cum+=l;return s}).join('');
+  return`<div style="display:flex;align-items:center;gap:14px;margin:14px 0"><svg width="110" height="110" viewBox="0 0 100 100">${seg||'<circle cx="50" cy="50" r="40" fill="none" stroke="var(--b)" stroke-width="12"/>'}<text x="50" y="48" text-anchor="middle" font-size="10" fill="var(--t)" font-weight="500">${eur(SUM)}</text><text x="50" y="60" text-anchor="middle" font-size="7" fill="var(--t2)">${mn}</text></svg><div style="flex:1;display:flex;flex-direction:column;gap:6px">${TY.map(t=>`<div class=lg onclick="fcat('${t}')"><i style="background:${cc(t)}"></i><span style="flex:1">${T[t][0]}</span><span class=sm>${SUM?Math.round(TOT[t]/SUM*100):0}%</span></div>`).join('')}</div></div>`+rr(R.slice(0,5),1)},
+ B:()=>mt()+`<div style="display:flex;gap:2px;height:10px;margin:10px 0 14px;border-radius:5px;overflow:hidden;background:var(--b)">${TY.filter(t=>TOT[t]>0).map(t=>`<i style="flex:${TOT[t]};background:${cc(t)}"></i>`).join('')}</div><div class=grid2>${TY.map(t=>`<div class=card onclick="fcat('${t}')" style="border-top:2px solid ${cc(t)};cursor:pointer"><div class=sm>${T[t][0]}</div><div class=m>${eur(TOT[t])}</div></div>`).join('')}</div><div style="margin-top:14px">${rr(R.slice(0,4))}</div>`,
+ C:()=>{const y=String(n.getFullYear()),Y=R.filter(r=>r.date.startsWith(y)&&(ht==='all'||r.type===ht));
+  return`<div class=chips style="margin:14px 0 12px">${chipsHt().map(([k,nm])=>`<button class=chip onclick="ht='${k}';render()" style="${ht===k?`background:${k==='all'?'var(--t)':cc(k)};color:var(--bg);border-color:transparent;font-weight:500`:''}">${nm}</button>`).join('')}</div><div class=sm>${ht==='all'?'Tudo':T[ht][0]} · ${y}</div><div class=big style="font-size:26px">${eur(sumT(Y))}</div><div class=sm>${Y.length} registos este ano</div><div style="margin-top:12px">${Y.slice(0,6).map(r=>`<div class=card onclick="edit('${r.id}')" style="margin-bottom:8px;border-left:3px solid ${cc(r.type)};cursor:pointer"><div style="display:flex;justify-content:space-between"><span>${esc(ttl(r))}</span><b style="font-weight:500">${eur(r.cost)}</b></div><div class=sm>${fd(r.date)}${xt(r)?' · '+esc(xt(r)):''}</div></div>`).join('')||'<div class="card sm">Sem registos.</div>'}</div>`},
+ D:()=>`<div style="margin-top:14px;display:flex;flex-direction:column;gap:8px">${TY.map(t=>{const l=R.find(r=>r.type===t);return`<div class=card onclick="fcat('${t}')" style="display:flex;align-items:center;gap:12px;cursor:pointer"><div class=cb style="background:${cc(t)}22;color:${cc(t)}">${ic(T[t][1],20)}</div><div class=grow><div class=sm>${T[t][0]}</div><div class=m style="font-size:18px">${eur(TOT[t])}</div><div class=sm>${l?esc(ttl(l))+' · '+fd(l.date):'Sem registos'}</div></div><button class=pl style="background:${cc(t)}" onclick="event.stopPropagation();nw('${t}')" aria-label="Novo registo">+</button></div>`}).join('')}</div><div class=sm style="margin-top:10px">Total em ${mn} · ${eur(SUM)}</div>`,
+ E:()=>mt(26)+`<div class=tl>${R.slice(0,6).map(r=>`<div class=ti onclick="edit('${r.id}')"><i style="background:${cc(r.type)}"></i><div style="display:flex;justify-content:space-between"><span>${esc(ttl(r))}</span><b style="font-weight:500">${eur(r.cost)}</b></div><div class=sm>${fd(r.date)} · ${T[r.type][0]}</div></div>`).join('')}</div>`,
+ F:()=>mt(24)+`<div class=grid2 style="margin-top:12px">${TY.map(t=>`<div class=card onclick="fcat('${t}')" style="height:104px;display:flex;flex-direction:column;justify-content:space-between;cursor:pointer"><div style="color:${cc(t)}">${ic(T[t][1],26)}</div><div><div class=sm>${T[t][0]}</div><div class=m>${eur(TOT[t])}</div></div></div>`).join('')}</div><div style="margin-top:12px">${rr(R.slice(0,3))}</div>`,
+ G:()=>{const w=iso(new Date(n.getFullYear(),n.getMonth(),n.getDate()-6)),a=R.filter(r=>r.date>=w),b=R.filter(r=>r.date<w).slice(0,6);return`<div class=q4>${qb()}</div>`+mt(26)+(a.length?`<div class=sm style="margin-top:14px">Esta semana</div>${rr(a,1)}`:'')+(b.length?`<div class=sm style="margin-top:14px">Mais antigos</div>${rr(b,1)}`:'')},
+ H:()=>{const F=R.filter(r=>r.type==='fuel'),pp=F.filter(r=>r.ppl).slice(0,6).reverse().map(r=>r.ppl),cs=cons(v.id).avg,ck=cpk(v.id),lp=pp[pp.length-1];
+  return`<div class=card style="margin-top:14px;border-top:3px solid ${cc('fuel')}"><div style="display:flex;align-items:center;gap:6px;color:${cc('fuel')};font-size:12px">${ic('fuel',16)}Combustível em ${mn}</div><div class=big style="font-size:28px;margin-top:4px">${eur(TOT.fuel)}</div><div class=sm>${lp?lp.toLocaleString('pt-PT',{minimumFractionDigits:3})+' €/L · ':''}${cs?cs.toFixed(1).replace('.',',')+' L/100 km · ':''}${ck?eur(ck)+'/km':''}</div>${pp.length>1?sp(pp,cc('fuel')):''}</div><div class=grid3 style="margin-top:8px">${['service','acc','docs'].map(t=>`<div class=card onclick="fcat('${t}')" style="padding:10px;cursor:pointer"><div style="display:flex;align-items:center;gap:5px;color:${cc(t)};font-size:11px">${ic(T[t][1],14)}${T[t][0]}</div><div class=m style="font-size:14px;margin-top:4px">${eur(TOT[t])}</div></div>`).join('')}</div><div style="margin-top:12px">${rr(F.slice(0,3))||''}</div>`},
+ I:()=>{const L=R.filter(r=>ht==='all'||r.type===ht).slice(0,8);return`<div class=sm style="margin-top:14px">${mn}</div><div class=big style="font-size:26px">−${eur(SUM)}</div><div class=chips style="margin:10px 0">${chipsHt().map(([k,nm])=>`<button class="chip ${ht===k?'on':''}" onclick="ht='${k}';render()">${nm}</button>`).join('')}</div>${L.map(r=>`<div class=row onclick="edit('${r.id}')"><div class=sm style="width:34px;text-align:center;line-height:1.2">${fd(r.date).replace(' ','<br>')}</div><div class=grow><div>${esc(ttl(r))}</div><span class=tg style="background:${cc(r.type)}22;color:${cc(r.type)}">${T[r.type][0]}</span></div><b style="font-weight:500">−${eur(r.cost)}</b></div>`).join('')}`},
+ J:()=>mt(24)+`<div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">${TY.map(t=>{const s=[5,4,3,2,1,0].map(k=>sumT(R.filter(r=>r.date.startsWith(pk(k))),t)),d=s[5]-s[4];return`<div class=card onclick="fcat('${t}')" style="display:grid;grid-template-columns:1fr 70px;gap:10px;align-items:center;cursor:pointer"><div><div style="display:flex;align-items:center;gap:6px;font-size:12px;color:${cc(t)}">${ic(T[t][1],14)}${T[t][0]}</div><div class=m>${eur(s[5])}</div><div class=sm>${d>=0?'+':'−'}${eur(Math.abs(d))} vs. mês anterior</div></div>${sp(s,cc(t))}</div>`}).join('')}</div><div style="margin-top:12px">${rr(R.slice(0,2),1)}</div>`};
+ return hd()+al()+(Ls[D.s.l]||Ls.G)()}
 function lb(){let R=fv==='all'?D.r.slice():D.r.filter(r=>r.vid===(fv==='cur'?veh().id:fv));
  R=R.filter(r=>ft==='all'||r.type===ft);const n=new Date(),cut=fp==='m'?new Date(n.getFullYear(),n.getMonth(),1):fp==='3'?new Date(n.getFullYear(),n.getMonth()-2,1):fp==='y'?new Date(n.getFullYear(),0,1):null;
  if(cut)R=R.filter(r=>r.date>=iso(cut));
- const q=fq.trim().toLowerCase();if(q)R=R.filter(r=>[r.place,r.notes,r.sub,r.brand,r.size,(r.works||[]).join(' '),lab(r)].join(' ').toLowerCase().includes(q));
- R.sort(cmp);const t=R.reduce((s,r)=>s+r.cost,0);
- return`<div class=sm style="margin:12px 0 8px">${R.length} registos · ${eur(t)}</div>${R.length?`<div class=card style="padding:4px 12px">${R.map(r=>row(r,fv==='all')).join('')}</div>`:'<div class="card sm">Nenhum registo com estes filtros.</div>'}`}
+ const q=fq.trim().toLowerCase();if(q)R=R.filter(r=>[r.place,r.notes,r.sub,r.brand,r.size,(r.works||[]).join(' '),lab(r),T[r.type][0]].join(' ').toLowerCase().includes(q));
+ R.sort(cmp);
+ return`<div class=sm style="margin:12px 0 8px">${R.length} registos · ${eur(sumT(R))}</div>${R.length?`<div class=card style="padding:4px 12px">${R.map(r=>row(r,1,fv==='all')).join('')}</div>`:'<div class="card sm">Nenhum registo com estes filtros.</div>'}`}
 const fl=()=>{$('#lb').innerHTML=lb()};
+const fcat=t=>{ft=t;fp='all';fv='cur';fq='';go('list')};
 function list(){const o=(a,b,c)=>`<option value="${a}" ${b===a?'selected':''}>${c}</option>`;
- return`<h1>Registos</h1><input type=search placeholder="Pesquisar oficina, notas, trabalhos…" value="${esc(fq)}" oninput="fq=this.value;fl()" style="margin-top:12px"><div class=chips style="margin-top:10px">${[['all','Tudo'],...Object.entries(T).map(([k,x])=>[k,x[0]])].map(([k,n])=>`<button class="chip ${ft===k?'on':''}" onclick="ft='${k}';render()">${n}</button>`).join('')}</div>
+ return`<h1>Registos</h1><input type=search placeholder="Pesquisar oficina, notas, trabalhos…" value="${esc(fq)}" oninput="fq=this.value;fl()" style="margin-top:12px"><div class=chips style="margin-top:10px">${[['all','Tudo'],...TY.map(t=>[t,T[t][0]])].map(([k,n])=>`<button class="chip ${ft===k?'on':''}" onclick="ft='${k}';render()">${n}</button>`).join('')}</div>
 <div class=grid2 style="margin-top:10px"><select onchange="fp=this.value;render()">${o('all',fp,'Todo o período')+o('m',fp,'Este mês')+o('3',fp,'Últimos 3 meses')+o('y',fp,'Este ano')}</select><select onchange="fv=this.value;render()">${o('cur',fv,'Viatura atual')+o('all',fv,'Todas as viaturas')+D.v.map(v=>o(v.id,fv,esc(v.name))).join('')}</select></div><div id=lb>${lb()}</div>`}
 function form(){const d=dr,t=d.type,inp=(l,k,ty,ph='')=>`<div class=f><label>${l}</label><input type=${ty} ${ty=='number'?'step=any inputmode=decimal':''} placeholder="${ph}" value="${esc(d[k]??'')}" oninput="u('${k}',this.value,${ty=='number'})"></div>`,fi=(l,id,k)=>`<div class=f><label>${l}</label><input id=f${id} type=number step=any inputmode=decimal value="${d[k]??''}" oninput="fu('${id}',this.value)"></div>`;
  return`<h1>${ed?'Editar registo':'Novo registo'}</h1><div class=f style="margin:10px 0 14px"><select onchange="dr.vid=this.value">${D.v.map(v=>`<option value="${v.id}" ${v.id===d.vid?'selected':''}>${esc(v.name)}</option>`).join('')}</select></div>
-<div class=seg>${Object.keys(T).map(k=>`<button class="${t===k?'on':''}" onclick="ty('${k}')">${T[k][0]}</button>`).join('')}</div>
+<div class=seg>${TY.map(k=>`<button class="${t===k?'on':''}" style="${t===k?`background:${cc(k)}`:''}" onclick="ty('${k}')">${T[k][0]}</button>`).join('')}</div>
 <div class=grid2 style="margin-top:14px">${inp('Data','date','date')}${inp('Quilómetros','km','number',num(vkm(d.vid)))}</div>
+${SUB[t]?`<div class=f><label>Tipo</label><select onchange="dr.sub=this.value;render()">${SUB[t].map(o=>`<option ${d.sub===o?'selected':''}>${o}</option>`).join('')}</select></div>`:''}
 ${t==='fuel'?`<div class=grid2>${fi('Litros','L','liters')}${fi('Preço por litro (€)','P','ppl')}</div>${fi('Valor pago (€)','T','cost')}<div class=sm style="margin:-4px 0 12px">Preenche dois dos três campos e o terceiro é calculado.</div><label class=ck><input type=checkbox ${d.full!==false?'checked':''} onchange="dr.full=this.checked"> Depósito cheio</label>`:''}
-${t==='service'?`<label>Trabalhos efetuados</label><div class=chips style="margin-bottom:12px">${WK.map(w=>`<button class="chip ${(d.works||[]).includes(w)?'on':''}" onclick="tw('${w}',this)">${w}</button>`).join('')}</div>${inp('Próxima revisão (km)','nextKm','number')}`:''}
-${t==='tires'?`<div class=f><label>Posição</label><select onchange="dr.pos=this.value">${['Todos','Frente','Trás'].map(o=>`<option ${d.pos===o?'selected':''}>${o}</option>`).join('')}</select></div><div class=grid2>${inp('Marca','brand','text')}${inp('Medida','size','text','205/55 R16')}</div>`:''}
-${t==='other'?`<div class=f><label>Tipo de despesa</label><select onchange="dr.sub=this.value">${OS.map(o=>`<option ${d.sub===o?'selected':''}>${o}</option>`).join('')}</select></div>`:''}
+${t==='service'&&d.sub==='Revisão'?`<label>Trabalhos efetuados</label><div class=chips style="margin-bottom:12px">${WK.map(w=>`<button class="chip ${(d.works||[]).includes(w)?'on':''}" onclick="tw('${w}',this)">${w}</button>`).join('')}</div>${inp('Próxima revisão (km)','nextKm','number')}`:''}
+${t==='service'&&d.sub==='Pneus'?`<div class=f><label>Posição</label><select onchange="dr.pos=this.value">${['Todos','Frente','Trás'].map(o=>`<option ${d.pos===o?'selected':''}>${o}</option>`).join('')}</select></div><div class=grid2>${inp('Marca','brand','text')}${inp('Medida','size','text','205/55 R16')}</div>`:''}
 ${inp('Local / oficina','place','text')}
 ${t!=='fuel'?`<div class=f><label>Custo total (€)</label><input type=number step=any inputmode=decimal value="${d.cost??''}" oninput="u('cost',this.value,true)"></div>`:''}
 <div class=f><label>Notas</label><textarea rows=2 oninput="dr.notes=this.value">${esc(d.notes||'')}</textarea></div>
 <button class=btn onclick="sv()">Guardar registo</button><button class="btn ghost" onclick="go('list')">Cancelar</button>${ed?`<button class="btn danger" onclick="del()">Eliminar registo</button>`:''}`}
+const opt=(a,c,f)=>a.map(x=>`<option value="${x}" ${+c===x?'selected':''}>${f(x)}</option>`).join('');
 function remv(){const L=D.m.map(m=>({m,...rs(m)})).sort((a,b)=>b.st-a.st||((a.m.date||'9')<(b.m.date||'9')?-1:1));
- return`<div class=top><h1>Lembretes</h1><button class=chip style="color:var(--a);border-color:var(--a);padding:8px 14px" onclick="nr()">+ Novo</button></div><div class=sm style="margin:4px 0 12px">Todas as viaturas</div>${L.length?`<div class=card style="padding:4px 12px">${L.map(x=>`<div class=row onclick="er('${x.m.id}')"><div style="color:${x.st>1?'var(--r)':x.st?'var(--a)':'var(--t2)'}">${ic('bell')}</div><div class=grow><div>${esc(x.m.title)}</div><div class=sm>${esc(vn(x.m.vid))} · ${x.tx}</div></div></div>`).join('')}</div>`:'<div class="card sm">Sem lembretes. Toca em + Novo para criar o primeiro (revisão, inspeção, seguro, IUC…). Ao guardares uma revisão com a próxima revisão em km, o lembrete é criado sozinho.</div>'}<button class="btn ghost" onclick="go('home')">Voltar</button>`}
+ return`<div class=top><h1>Lembretes</h1><button class=chip style="color:var(--a);border-color:var(--a);padding:8px 14px" onclick="nr()">+ Novo</button></div><div class=sm style="margin:4px 0 12px">Todas as viaturas</div>${L.length?`<div class=card style="padding:4px 12px">${L.map(x=>`<div class=row onclick="er('${x.m.id}')"><div style="color:${x.st>1?'var(--r)':x.st?'var(--a)':'var(--t2)'}">${ic('bell')}</div><div class=grow><div>${esc(x.m.title)}${x.m.repM||x.m.repK?' ↻':''}</div><div class=sm>${esc(vn(x.m.vid))} · ${x.tx}</div></div></div>`).join('')}</div>`:'<div class="card sm">Sem lembretes. Toca em + Novo para criar o primeiro (inspeção, seguro, IUC, revisão…). Ao guardares uma revisão com a próxima revisão em km, o lembrete é criado sozinho.</div>'}<button class="btn ghost" onclick="go('home')">Voltar</button>`}
 function remf(){const d=dm;return`<h1>${em?'Editar lembrete':'Novo lembrete'}</h1><div class=f style="margin-top:12px"><label>Viatura</label><select onchange="dm.vid=this.value">${D.v.map(v=>`<option value="${v.id}" ${v.id===d.vid?'selected':''}>${esc(v.name)}</option>`).join('')}</select></div>
-<div class=f><label>O quê</label><input list=pl value="${esc(d.title||'')}" placeholder="Revisão, Inspeção, Seguro…" oninput="dm.title=this.value"><datalist id=pl>${['Revisão','Inspeção','Seguro','IUC','Pneus','Correia de distribuição','Bateria'].map(o=>`<option>${o}</option>`).join('')}</datalist></div>
-<div class=grid2><div class=f><label>Data limite</label><input type=date value="${d.date||''}" oninput="dm.date=this.value"></div><div class=f><label>Km limite</label><input type=number inputmode=numeric value="${d.km||''}" oninput="dm.km=+this.value||0"></div></div>
-<div class=sm style="margin-bottom:6px">Usa a data, os km ou ambos. O aviso aparece quando faltarem 30 dias ou 1 000 km.</div>
-<button class=btn onclick="srm()">Guardar lembrete</button>${em?`<button class="btn ghost" onclick="drm()">Concluído (remover)</button>`:''}<button class="btn danger" onclick="go('rem')">Cancelar</button>`}
-const sp=v=>{if(v.length<2)return'<div class=sm style="padding:8px 0">Dados insuficientes</div>';const mn=Math.min(...v),mx=Math.max(...v),r=mx-mn||1;return`<svg viewBox="0 0 300 60" preserveAspectRatio="none" style="width:100%;height:60px;margin-top:6px"><polyline points="${v.map((y,i)=>`${i/(v.length-1)*300},${56-(y-mn)/r*50}`).join(' ')}" fill="none" stroke="var(--a)" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`};
+<div class=f><label>O quê</label><input list=pl value="${esc(d.title||'')}" placeholder="Inspeção, Seguro, IUC, Revisão…" oninput="dm.title=this.value"><datalist id=pl>${['Revisão','Inspeção','Seguro','IUC','Pneus','Correia de distribuição','Bateria'].map(o=>`<option>${o}</option>`).join('')}</datalist></div>
+<div class=grid2><div class=f><label>Prazo (data limite)</label><input type=date value="${d.date||''}" oninput="dm.date=this.value"></div><div class=f><label>Avisar com</label><select onchange="dm.leadD=+this.value">${opt([7,15,30,60,90],d.leadD||D.s.ld,x=>x+' dias antes')}</select></div></div>
+<div class=grid2><div class=f><label>Km limite</label><input type=number inputmode=numeric value="${d.km||''}" oninput="dm.km=+this.value||0"></div><div class=f><label>Avisar com</label><select onchange="dm.leadK=+this.value">${opt([500,1000,2000,3000],d.leadK||D.s.lk,x=>num(x)+' km antes')}</select></div></div>
+<div class=grid2><div class=f><label>Repetir a cada</label><select onchange="dm.repM=+this.value">${opt([0,3,6,12,24],d.repM||0,x=>x?x+' meses'+(x===12?' (anual)':''):'Não repetir')}</select></div><div class=f><label>Ou a cada</label><select onchange="dm.repK=+this.value">${opt([0,10000,15000,20000,30000],d.repK||0,x=>x?num(x)+' km':'Não repetir')}</select></div></div>
+<div class=sm style="margin-bottom:6px">O aviso aparece quando faltar o tempo ou os km escolhidos. Ao concluir, um lembrete que se repete passa sozinho para o ciclo seguinte. Se usares data e km, define a repetição das duas.</div>
+<button class=btn onclick="srm()">Guardar lembrete</button>${em?`<button class="btn ghost" onclick="drm()">Concluído</button>`:''}<button class="btn danger" onclick="go('rem')">Cancelar</button>`}
 function stv(){const A=sa==='all'?D.r.slice():recs(),ys=[...new Set(A.map(r=>+r.date.slice(0,4)).concat(new Date().getFullYear()))].sort((a,b)=>b-a);
- return`<h1>Estatísticas</h1><div class=chips style="margin:12px 0">${[['cur','Esta viatura'],['all','Todas']].map(([k,n])=>`<button class="chip ${sa===k?'on':''}" onclick="sa='${k}';render()">${n}</button>`).join('')}</div><div class=seg><button class="${stt==='r'?'on':''}" onclick="stt='r';render()">Resumo</button><button class="${stt==='c'?'on':''}" onclick="stt='c';render()">Calendário</button></div>${stt==='c'?cal(A):sum(A,ys)}`}
-function sum(A,ys){const R=A.filter(r=>r.date.startsWith(sy)),tot=R.reduce((s,r)=>s+r.cost,0),mm=Array(12).fill(0),by={},now=new Date(),nm=sy===now.getFullYear()?now.getMonth()+1:12;
- R.forEach(r=>{mm[+r.date.slice(5,7)-1]+=r.cost;by[lab(r)]=(by[lab(r)]||0)+r.cost});const mx=Math.max(...mm,1),ks=Object.entries(by).sort((a,b)=>b[1]-a[1]);
+ return`<h1>Estatísticas</h1><div class=chips style="margin:12px 0">${[['cur','Esta viatura'],['all','Todas']].map(([k,n])=>`<button class="chip ${sa===k?'on':''}" onclick="sa='${k}';render()">${n}</button>`).join('')}</div><div class=seg><button class="${stt==='r'?'on':''}" style="${stt==='r'?'background:var(--a)':''}" onclick="stt='r';render()">Resumo</button><button class="${stt==='c'?'on':''}" style="${stt==='c'?'background:var(--a)':''}" onclick="stt='c';render()">Calendário</button></div>${stt==='c'?cal(A):sum(A,ys)}`}
+function sum(A,ys){const R=A.filter(r=>r.date.startsWith(sy)),tot=sumT(R),now=new Date(),nm=sy===now.getFullYear()?now.getMonth()+1:12,
+ mt=Array.from({length:12},(_,i)=>{const X=R.filter(r=>r.date.startsWith(sy+'-'+String(i+1).padStart(2,'0')));return{x:sumT(X),t:TY.map(t=>sumT(X,t))}}),mx=Math.max(...mt.map(a=>a.x),1),byT=TY.map(t=>[t,sumT(R,t)]).filter(a=>a[1]>0).sort((a,b)=>b[1]-a[1]);
  let f='';if(sa==='cur'){const id=veh().id,pp=recs().filter(r=>r.type==='fuel'&&r.ppl&&r.date.startsWith(sy)).sort((a,b)=>a.date<b.date?-1:1).map(r=>r.ppl),c=cons(id),ck=cpk(id),f3=x=>x.toLocaleString('pt-PT',{minimumFractionDigits:3});
-  f=`<div class=card style="margin-top:10px"><div class=sm>Preço do combustível (€/L)</div>${pp.length?`<div class=m>média ${f3(pp.reduce((a,b)=>a+b,0)/pp.length)} · último ${f3(pp[pp.length-1])}</div>${sp(pp)}<div class=sm>mín ${f3(Math.min(...pp))} · máx ${f3(Math.max(...pp))}</div>`:'<div class=sm style="padding:6px 0">Sem abastecimentos neste ano.</div>'}</div><div class=card style="margin-top:10px"><div class=sm>Consumo (L/100 km)</div><div class=m>${c.avg?'média '+c.avg.toFixed(1).replace('.',','):'—'}${ck?' · '+eur(ck)+'/km':''}</div>${sp(c.s.slice(-12))}<div class=sm>Últimos abastecimentos com depósito cheio</div></div>`}
+  f=`<div class=card style="margin-top:10px"><div class=sm>Preço do combustível (€/L)</div>${pp.length?`<div class=m>média ${f3(pp.reduce((a,b)=>a+b,0)/pp.length)} · último ${f3(pp[pp.length-1])}</div>${sp(pp,cc('fuel'))}<div class=sm>mín ${f3(Math.min(...pp))} · máx ${f3(Math.max(...pp))}</div>`:'<div class=sm style="padding:6px 0">Sem abastecimentos neste ano.</div>'}</div><div class=card style="margin-top:10px"><div class=sm>Consumo (L/100 km)</div><div class=m>${c.avg?'média '+c.avg.toFixed(1).replace('.',','):'—'}${ck?' · '+eur(ck)+'/km':''}</div>${sp(c.s.slice(-12),cc('fuel'))}<div class=sm>Últimos abastecimentos com depósito cheio</div></div>`}
  else f='<div class="card sm" style="margin-top:10px">Consumo e preço do combustível só aparecem para uma viatura de cada vez.</div>';
  return`<div class=chips style="margin:14px 0 4px">${ys.map(y=>`<button class="chip ${sy===y?'on':''}" onclick="sy=${y};render()">${y}</button>`).join('')}</div><div class=sm style="margin-top:12px">Total em ${sy}</div><div class=big>${eur(tot)}</div><div class=sm>${eur(tot/nm)} por mês · ${R.length} registos</div>
-<div class=bars style="height:70px">${mm.map(x=>`<div style="height:${Math.max(x/mx*100,3)}%;${x===mx&&x>0?'background:var(--a)':''}"></div>`).join('')}</div><div class=bl style="gap:4px">${MN.map(m=>`<span>${m[0].toUpperCase()}</span>`).join('')}</div>
-<div class=h2>Por tipo de despesa</div>${ks.length?`<div class=card>${ks.map(([k,v])=>`<div class=sm style="display:flex;justify-content:space-between;color:var(--t)"><span>${esc(k)}</span><span>${eur(v)} · ${Math.round(v/tot*100)}%</span></div><div class=tr><i style="width:${v/tot*100}%"></i></div>`).join('')}</div>`:'<div class="card sm">Sem registos neste ano.</div>'}${f}`}
-function cal(A){const by={};A.forEach(r=>{(by[r.date]=by[r.date]||{s:0}).s+=r.cost});const y=cm.getFullYear(),m=cm.getMonth(),td=today();let g,mx,pre;
- const op=x=>x?(.25+.75*x.s/mx).toFixed(2):0,bt=(i,cls,inner,st='')=>`<button class="${cls} ${i===sd?'sel':''} ${i===td?'td':''}" style="${st}" onclick="sd='${i}';render()">${inner}</button>`;
+<div class=sb2>${mt.map(a=>`<div style="height:${Math.max(a.x/mx*100,3)}%;${a.x?'':'background:var(--b)'}">${a.x?TY.map((t,i)=>`<i style="height:${a.t[i]/a.x*100}%;background:${cc(t)}"></i>`).join(''):''}</div>`).join('')}</div><div class=bl>${MN.map(m=>`<span>${m[0].toUpperCase()}</span>`).join('')}</div>
+<div class=h2>Por categoria</div>${byT.length?`<div class=card>${byT.map(([t,v])=>`<div class=sm style="display:flex;justify-content:space-between;color:var(--t)"><span style="color:${cc(t)}">${T[t][0]}</span><span>${eur(v)} · ${Math.round(v/tot*100)}%</span></div><div class=tr><i style="width:${v/tot*100}%;background:${cc(t)}"></i></div>`).join('')}</div>`:'<div class="card sm">Sem registos neste ano.</div>'}${f}`}
+function cal(A){const by={};A.forEach(r=>{(by[r.date]=by[r.date]||{s:0,t:new Set()}).s+=r.cost;by[r.date].t.add(r.type)});const y=cm.getFullYear(),m=cm.getMonth(),td=today();let g,mx,pre;
+ const op=x=>x?(.2+.7*x.s/mx).toFixed(2):0,bt=(i,cls,inner,st='')=>`<button class="${cls} ${i===sd?'sel':''} ${i===td?'td':''}" style="${st}" onclick="sd='${i}';render()">${inner}</button>`;
  if(cv==='m'){pre=iso(cm).slice(0,7);mx=Math.max(1,...Object.keys(by).filter(k=>k.startsWith(pre)).map(k=>by[k].s));const off=(new Date(y,m,1).getDay()+6)%7,dn=new Date(y,m+1,0).getDate();
-  g=`<div class=cg>${['S','T','Q','Q','S','S','D'].map(d=>`<b>${d}</b>`).join('')}${'<span></span>'.repeat(off)}${Array.from({length:dn},(_,k)=>{const i=pre+'-'+String(k+1).padStart(2,'0'),x=by[i];return bt(i,'cl',`<i style="opacity:${op(x)}"></i><span style="${x?'font-weight:600':''}">${k+1}</span>`)}).join('')}</div>`}
- else{mx=Math.max(1,...Object.keys(by).filter(k=>k.startsWith(y+'-')).map(k=>by[k].s));const off=(new Date(y,0,1).getDay()+6)%7,days=(new Date(y,11,31)-new Date(y,0,1))/864e5+1,cols=Math.ceil((off+days)/7);
+  g=`<div class=cg>${['S','T','Q','Q','S','S','D'].map(d=>`<b>${d}</b>`).join('')}${'<span></span>'.repeat(off)}${Array.from({length:dn},(_,k)=>{const i=pre+'-'+String(k+1).padStart(2,'0'),x=by[i];return bt(i,'cl',`<i style="opacity:${op(x)}"></i><span style="${x?'font-weight:600':''}">${k+1}</span>${x?`<u>${[...x.t].map(t=>`<b style="background:${cc(t)}"></b>`).join('')}</u>`:''}`)}).join('')}</div>`}
+ else{mx=Math.max(1,...Object.keys(by).filter(k=>k.startsWith(y+'-')).map(k=>by[k].s));const off=(new Date(y,0,1).getDay()+6)%7,days=Math.round((new Date(y,11,31)-new Date(y,0,1))/864e5)+1,cols=Math.ceil((off+days)/7);
   g=`<div class=cyg style="grid-template-columns:repeat(${cols},minmax(0,1fr))">${Array.from({length:days},(_,k)=>{const i=iso(new Date(y,0,1+k)),x=by[i];return bt(i,'cy',`<i style="opacity:${op(x)}"></i>`,k===0?`grid-row-start:${off+1}`:'')}).join('')}</div>`}
- const dd=A.filter(r=>r.date===sd).sort(cmp),tot=dd.reduce((s,r)=>s+r.cost,0);
+ const dd=A.filter(r=>r.date===sd).sort(cmp),tot=sumT(dd);
  return`<div class=nv><button onclick="cmv(-1)" aria-label="Anterior">‹</button><b style="font-weight:500">${cv==='m'?cm.toLocaleDateString('pt-PT',{month:'long',year:'numeric'}):y}</b><button onclick="cmv(1)" aria-label="Seguinte">›</button></div>
-<div class=chips style="margin-bottom:12px">${[['m','Mês'],['y','Ano']].map(([k,n])=>`<button class="chip ${cv===k?'on':''}" onclick="cv='${k}';render()">${n}</button>`).join('')}</div>${g}<div class=sm style="margin-top:8px">Quanto mais forte a cor, maior o gasto nesse dia.</div>
-<div class=h2>${new Date(sd+'T12:00').toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long'})}${dd.length?' · '+eur(tot):''}</div>${dd.length?`<div class=card style="padding:4px 12px">${dd.map(r=>row(r,sa==='all')).join('')}</div>`:`<div class="card sm">Sem registos neste dia.</div><button class="btn ghost" onclick="nw('fuel','${sd}')">Adicionar registo neste dia</button>`}`}
-function settings(){return`<h1>Definições</h1><div class=h2>Cores</div><div class=pws>${PAL.map((p,i)=>`<button class="pw ${D.s.t===i?'on':''}" onclick="D.s.t=${i};save();ap();render()"><span style="background:${p[1]}"><i style="background:${p[2]}"></i><i style="background:${p[6]}"></i></span>${p[0]}</button>`).join('')}</div>
-<div class=h2>Layout do ecrã inicial</div>${Object.entries(LY).map(([k,x])=>`<div class="card vc ${D.s.l==k?'on':''}" onclick="D.s.l=${k};save();render()"><div class=grow><div>${x[0]}</div><div class=sm>${x[1]}</div></div>${D.s.l==k?ic('check'):''}</div>`).join('')}
-<div class=h2>Viaturas</div>${D.v.map(v=>`<div class=card style="margin-bottom:10px"><div class=f><label>Nome</label><input value="${esc(v.name)}" oninput="uv('${v.id}','name',this.value)"></div><div class=grid2><div class=f><label>Tipo</label><select onchange="uv('${v.id}','kind',this.value)"><option value=car ${v.kind!=='moto'?'selected':''}>Carro</option><option value=moto ${v.kind==='moto'?'selected':''}>Mota</option></select></div><div class=f><label>Matrícula</label><input value="${esc(v.plate||'')}" oninput="uv('${v.id}','plate',this.value)"></div></div><div class=f><label>Km atuais</label><input type=number inputmode=numeric value="${v.km||''}" oninput="uv('${v.id}','km',+this.value)"></div>${D.v.length>1?`<button class="btn danger" style="padding:4px;margin:0" onclick="dv('${v.id}')">Eliminar viatura, registos e lembretes</button>`:''}</div>`).join('')}
-<button class="btn ghost" onclick="av()">Adicionar viatura</button>
-<div class=h2>Cópia de segurança</div><div class=sm style="margin-bottom:10px">Os dados ficam só neste telemóvel. Exporta uma cópia de vez em quando.</div>
-<button class="btn ghost" onclick="ex()">Exportar cópia (JSON)</button><button class="btn ghost" onclick="csv()">Exportar para Excel (CSV)</button><label class="btn ghost" style="text-align:center;color:var(--t);font-size:14px">Importar cópia<input type=file accept=".json,application/json" hidden onchange="imp(this)"></label>`}
+<div class=chips style="margin-bottom:12px">${[['m','Mês'],['y','Ano']].map(([k,n])=>`<button class="chip ${cv===k?'on':''}" onclick="cv='${k}';render()">${n}</button>`).join('')}</div>${g}<div class=sm style="margin-top:8px">Cor mais forte, maior gasto. Os pontos mostram as categorias do dia.</div>
+<div class=h2>${new Date(sd+'T12:00').toLocaleDateString('pt-PT',{weekday:'long',day:'numeric',month:'long'})}${dd.length?' · '+eur(tot):''}</div>${dd.length?`<div class=card style="padding:4px 12px">${dd.map(r=>row(r,1,sa==='all')).join('')}</div>`:`<div class="card sm">Sem registos neste dia.</div><button class="btn ghost" onclick="nw('fuel','${sd}')">Adicionar registo neste dia</button>`}`}
+const sbk=t=>`<button class=bk onclick="go('set')">‹ Definições</button><h1>${t}</h1>`;
+function settings(){const it=[['s_asp','Aspeto','Cores e layout do ecrã inicial','sliders'],['s_veh','Viaturas',D.v.length+' registada(s)','car'],['s_rem','Lembretes','Antecedência por omissão','bell'],['s_dat','Dados e cópias','Exportar e importar','file'],['s_abt','Sobre','Versão e atualização','check']];
+ return`<h1>Definições</h1><div class=card style="margin-top:14px;padding:4px 12px">${it.map(([v,n,d,i])=>`<div class=row onclick="go('${v}')"><div style="color:var(--a)">${ic(i)}</div><div class=grow><div>${n}</div><div class=sm>${d}</div></div><span class=sm>›</span></div>`).join('')}</div>`}
+function sAsp(){return sbk('Aspeto')+`<div class=h2>Cores</div><div class=pws>${PAL.map((p,i)=>`<button class="pw ${D.s.t===i?'on':''}" onclick="D.s.t=${i};save();ap();render()"><span style="background:${p[1]}"><i style="background:${p[2]}"></i><i style="background:${p[6]}"></i></span>${p[0]}</button>`).join('')}</div>
+<div class=h2>Layout do ecrã inicial</div><button class="btn ghost" style="margin:0 0 10px" onclick="go('home')">Ver no início</button>${Object.entries(LY).map(([k,x])=>`<div class="card vc ${D.s.l===k?'on':''}" onclick="D.s.l='${k}';save();render()"><div class=grow><div>${k} · ${x[0]}</div><div class=sm>${x[1]}</div></div>${D.s.l===k?ic('check'):''}</div>`).join('')}`}
+function sVeh(){return sbk('Viaturas')+D.v.map(v=>`<div class=card style="margin:12px 0"><div class=f><label>Nome</label><input value="${esc(v.name)}" oninput="uv('${v.id}','name',this.value)"></div><div class=grid2><div class=f><label>Tipo</label><select onchange="uv('${v.id}','kind',this.value)"><option value=car ${v.kind!=='moto'?'selected':''}>Carro</option><option value=moto ${v.kind==='moto'?'selected':''}>Mota</option></select></div><div class=f><label>Matrícula</label><input value="${esc(v.plate||'')}" oninput="uv('${v.id}','plate',this.value)"></div></div><div class=f><label>Km atuais</label><input type=number inputmode=numeric value="${v.km||''}" oninput="uv('${v.id}','km',+this.value)"></div>${D.v.length>1?`<button class="btn danger" style="padding:4px;margin:0" onclick="dv('${v.id}')">Eliminar viatura, registos e lembretes</button>`:''}</div>`).join('')+`<button class="btn ghost" onclick="av()">Adicionar viatura</button>`}
+function sRem(){return sbk('Lembretes')+`<div class=sm style="margin:6px 0 14px">Valores usados ao criar um lembrete novo. Em cada lembrete podes mudá-los.</div><div class=f><label>Avisar por data</label><select onchange="D.s.ld=+this.value;save()">${opt([7,15,30,60,90],D.s.ld,x=>x+' dias antes do prazo')}</select></div><div class=f><label>Avisar por km</label><select onchange="D.s.lk=+this.value;save()">${opt([500,1000,2000,3000],D.s.lk,x=>num(x)+' km antes')}</select></div><button class="btn ghost" onclick="go('rem')">Abrir lembretes</button>`}
+function sDat(){return sbk('Dados e cópias')+`<div class=sm style="margin:6px 0 12px">Os dados ficam só neste telemóvel. Última cópia: ${D.s.bk?fd(D.s.bk)+' '+D.s.bk.slice(0,4):'nunca'}.</div><button class="btn ghost" onclick="ex()">Exportar cópia (JSON)</button><button class="btn ghost" onclick="csv()">Exportar para Excel (CSV)</button><label class="btn ghost" style="text-align:center;color:var(--t)">Importar cópia<input type=file accept=".json,application/json" hidden onchange="imp(this)"></label>`}
+function sAbt(){return sbk('Sobre')+`<div class=card style="margin-top:14px"><div class=m>Roda V3</div><div class=sm style="margin-top:4px">${D.v.length} viatura(s) · ${D.r.length} registos · ${D.m.length} lembretes</div></div><div class=sm style="margin:14px 0 6px">Se a app não mostrar a versão mais recente, atualiza aqui. Os teus dados não são apagados.</div><button class="btn ghost" onclick="upd()">Atualizar app</button>`}
 const sheet=()=>sw?`<div class=bd onclick="sw=0;render()"><div class=sh onclick="event.stopPropagation()"><div class=top style="margin-bottom:14px"><h1>As tuas viaturas</h1><button class=x onclick="sw=0;render()" aria-label="Fechar">${ic('x')}</button></div>${D.v.map(v=>`<div class="card vc ${v.id===veh().id?'on':''}" onclick="D.a='${v.id}';save();sw=0;view='home';render()"><div class=av>${ic(v.kind==='moto'?'moto':'car')}</div><div class=grow><div>${esc(v.name)}</div><div class=sm>${esc(v.plate||'')}${v.plate?' · ':''}${num(vkm(v.id))} km</div></div>${v.id===veh().id?ic('check'):''}</div>`).join('')}<div class="card dash" onclick="av()">+ Adicionar viatura</div></div></div>`:'';
-const nav=()=>{const b=(k,n,c)=>`<button class="${view===k?'on':''}" onclick="go('${k}')" aria-label="${n}">${ic(c)}</button>`;return`<nav>${b('home','Início','home')+b('list','Registos','list')}<button class=plus onclick="nw('fuel')" aria-label="Registar abastecimento">${ic('fuel')}</button>${b('st','Estatísticas','chart')+b('set','Definições','sliders')}</nav>`};
-function render(){const f={home,list,form,set:settings,rem:remv,remf,st:stv}[view];$('#app').innerHTML=f()+sheet()+nav()}
+const nav=()=>{const b=(k,n,c,on)=>`<button class="${on??view===k?'on':''}" onclick="go('${k}')" aria-label="${n}">${ic(c)}</button>`;return`<nav>${b('home','Início','home')+b('list','Registos','list')}<button class=plus onclick="nw('fuel')" aria-label="Registar abastecimento">${ic('fuel')}</button>${b('st','Estatísticas','chart')+b('set','Definições','sliders',view==='set'||view.startsWith('s_'))}</nav>`};
+function render(){const f={home,list,form,set:settings,s_asp:sAsp,s_veh:sVeh,s_rem:sRem,s_dat:sDat,s_abt:sAbt,rem:remv,remf,st:stv}[view];$('#app').innerHTML=f()+sheet()+nav()}
 function go(v){view=v;ed=null;em=null;scrollTo(0,0);render()}
 function pf(){const lf=recs(dr.vid).find(r=>r.type==='fuel');if(lf){if(dr.ppl==null)dr.ppl=lf.ppl;if(!dr.place)dr.place=lf.place}}
-function nw(t,d){ed=null;dr={type:t||'fuel',date:d||today(),works:[],vid:veh().id};fo=['P','L','T'];if(dr.type==='fuel')pf();view='form';scrollTo(0,0);render()}
-function ty(k){dr.type=k;if(k==='fuel'&&!ed)pf();render()}
+function nw(t,d,vid,sub){ed=null;dr={type:t||'fuel',date:d||today(),works:[],vid:vid||veh().id};if(SUB[dr.type])dr.sub=sub||SUB[dr.type][0];fo=['P','L','T'];if(dr.type==='fuel')pf();view='form';scrollTo(0,0);render()}
+function ty(k){dr.type=k;dr.sub=SUB[k]?SUB[k][0]:undefined;if(k==='fuel'&&!ed)pf();render()}
 function edit(id){const r=D.r.find(x=>x.id===id);ed=id;dr={...r,works:[...(r.works||[])]};fo=['P','L','T'];view='form';scrollTo(0,0);render()}
 function u(k,v,n){dr[k]=n?(v===''?'':+v):v}
 function fu(k,v){const m={L:'liters',P:'ppl',T:'cost'};dr[m[k]]=v===''?'':+v;fo=[k,...fo.filter(x=>x!==k)];
@@ -224,26 +255,32 @@ function fu(k,v){const m={L:'liters',P:'ppl',T:'cost'};dr[m[k]]=v===''?'':+v;fo=
 function tw(w,el){dr.works=dr.works||[];const x=dr.works.indexOf(w);x<0?dr.works.push(w):dr.works.splice(x,1);el.classList.toggle('on')}
 function sv(){const d={...dr};if(!d.date)return alert('Indica a data.');
  ['cost','km','liters','ppl','nextKm'].forEach(k=>{if(d[k]!=null)d[k]=+d[k]||0});d.cost=d.cost||0;d.km=d.km||0;
- if(d.type==='fuel')d.full=d.full!==false;if(d.type==='tires')d.pos=d.pos||'Todos';if(d.type==='other')d.sub=d.sub||OS[0];
+ if(d.type==='fuel')d.full=d.full!==false;if(d.type==='service'&&d.sub==='Pneus')d.pos=d.pos||'Todos';
  if(ed)D.r=D.r.map(r=>r.id===ed?{...d,id:ed}:r);else D.r.push({...d,id:uid()});
  const v=D.v.find(x=>x.id===d.vid);if(d.km>(v.km||0))v.km=d.km;
- if(d.type==='service'&&d.nextKm){D.m=D.m.filter(m=>!(m.vid===d.vid&&m.auto));D.m.push({id:uid(),vid:d.vid,title:'Revisão',km:d.nextKm,auto:1})}
+ if(d.type==='service'&&d.sub==='Revisão'&&d.nextKm){D.m=D.m.filter(m=>!(m.vid===d.vid&&m.auto));D.m.push({id:uid(),vid:d.vid,title:'Revisão',km:d.nextKm,leadK:D.s.lk,leadD:D.s.ld,repK:Math.max(0,d.nextKm-d.km),repM:0,auto:1})}
  save();go('list')}
 function del(){if(confirm('Eliminar este registo?')){D.r=D.r.filter(r=>r.id!==ed);save();go('list')}}
-function nr(){em=null;dm={vid:D.a,title:'',date:'',km:0};view='remf';scrollTo(0,0);render()}
+const gs=t=>{t=(t||'').toLowerCase();return/seguro/.test(t)?['docs','Seguro']:/iuc|imposto|selo/.test(t)?['docs','Imposto (IUC)']:/inspe/.test(t)?['docs','Inspeção']:/revis/.test(t)?['service','Revisão']:/pneu/.test(t)?['service','Pneus']:null};
+function nr(){em=null;dm={vid:D.a,title:'',date:'',km:0,leadD:D.s.ld,leadK:D.s.lk,repM:0,repK:0};view='remf';scrollTo(0,0);render()}
 function er(id){em=id;dm={...D.m.find(m=>m.id===id)};view='remf';scrollTo(0,0);render()}
-function srm(){if(!(dm.title||'').trim())return alert('Indica o que é.');if(!dm.date&&!dm.km)return alert('Indica uma data ou km.');dm.auto=0;if(em)D.m=D.m.map(m=>m.id===em?{...dm,id:em}:m);else D.m.push({...dm,id:uid()});save();go('rem')}
-function drm(){if(confirm('Remover este lembrete?')){D.m=D.m.filter(m=>m.id!==em);save();go('rem')}}
+function srm(){if(!(dm.title||'').trim())return alert('Indica o que é.');if(!dm.date&&!dm.km)return alert('Indica um prazo ou km.');dm.auto=0;if(em)D.m=D.m.map(m=>m.id===em?{...dm,id:em}:m);else D.m.push({...dm,id:uid()});save();go('rem')}
+function drm(){const m=D.m.find(x=>x.id===em);if(!m)return go('rem');const rep=m.repM||m.repK,g=gs(m.title);
+ if(!confirm(rep?'Concluído. O lembrete passa para o ciclo seguinte.':'Concluído. O lembrete será removido.'))return;
+ if(rep){if(m.repM&&m.date){const d=new Date(m.date+'T12:00');let k=0;do{d.setMonth(d.getMonth()+m.repM);m.date=iso(d)}while(m.date<=today()&&++k<60)}
+  if(m.repK&&m.km){let k=0;do{m.km+=m.repK}while(m.km<=vkm(m.vid)&&++k<60)}}else D.m=D.m.filter(x=>x.id!==em);
+ save();go('rem');if(g&&confirm('Registar a despesa agora?'))nw(g[0],today(),m.vid,g[1])}
 function cmv(d){const y=cm.getFullYear(),m=cm.getMonth();cm=cv==='m'?new Date(y,m+d,1):new Date(y+d,0,1);render()}
 function uv(id,k,v){D.v.find(a=>a.id===id)[k]=v;save()}
 function av(){const n=prompt('Nome da viatura?');if(n&&n.trim()){const id=uid();D.v.push({id,name:n.trim(),km:0});D.a=id;save();sw=0;render()}}
 function dv(id){if(confirm('Eliminar esta viatura, os seus registos e lembretes?')){D.v=D.v.filter(v=>v.id!==id);D.r=D.r.filter(r=>r.vid!==id);D.m=D.m.filter(m=>m.vid!==id);if(D.a===id)D.a=D.v[0].id;save();render()}}
 async function dl(n,t,m){const f=new File([t],n,{type:m});if(navigator.canShare&&navigator.canShare({files:[f]})){try{await navigator.share({files:[f]});return}catch(e){if(e.name==='AbortError')return}}const a=document.createElement('a');a.href=URL.createObjectURL(f);a.download=n;a.click()}
-function ex(){dl('roda-copia-'+today()+'.json',JSON.stringify(D),'application/json')}
-function csv(){const q=s=>'"'+String(s??'').replace(/"/g,'""')+'"',c=n=>n==null||n===''?'':String(n).replace('.',','),H=['Data','Viatura','Tipo','Detalhe','Km','Custo','Litros','Preço/L','Trabalhos','Local','Notas'];
- const rows=D.r.slice().sort((a,b)=>a.date<b.date?-1:1).map(r=>[r.date,vn(r.vid),T[r.type][0],r.type==='other'?r.sub:r.type==='tires'?[r.pos,r.brand,r.size].filter(Boolean).join(' '):'',r.km,c(r.cost),c(r.liters),c(r.ppl),(r.works||[]).join(', '),r.place,r.notes].map(q).join(';'));
+function ex(){D.s.bk=today();save();dl('roda-copia-'+today()+'.json',JSON.stringify(D),'application/json');render()}
+function csv(){const q=s=>'"'+String(s??'').replace(/"/g,'""')+'"',c=n=>n==null||n===''?'':String(n).replace('.',','),H=['Data','Viatura','Categoria','Tipo','Detalhe','Km','Custo','Litros','Preço/L','Local','Notas'];
+ const rows=D.r.slice().sort((a,b)=>a.date<b.date?-1:1).map(r=>[r.date,vn(r.vid),T[r.type][0],r.sub||'',xt(r),r.km,c(r.cost),c(r.liters),c(r.ppl),r.place,r.notes].map(q).join(';'));
  dl('roda-registos.csv','\ufeff'+[H.map(q).join(';'),...rows].join('\n'),'text/csv')}
-function imp(el){const f=el.files[0];if(!f)return;f.text().then(t=>{try{const j=JSON.parse(t);if(!Array.isArray(j.v)||!j.v.length||!Array.isArray(j.r))throw 0;if(confirm('Substituir todos os dados atuais pela cópia?')){D=j;D.m=D.m||[];D.s=Object.assign({l:1,t:0},D.s);if(!D.v.find(v=>v.id===D.a))D.a=D.v[0].id;save();ap();go('home')}}catch(e){alert('Ficheiro inválido.')}})}
+function imp(el){const f=el.files[0];if(!f)return;f.text().then(t=>{try{const j=JSON.parse(t);if(!Array.isArray(j.v)||!j.v.length||!Array.isArray(j.r))throw 0;if(confirm('Substituir todos os dados atuais pela cópia?')){localStorage.setItem(K,JSON.stringify(j));location.reload()}}catch(e){alert('Ficheiro inválido.')}})}
+async function upd(){try{const k=await caches.keys();await Promise.all(k.map(x=>caches.delete(x)));const r=await navigator.serviceWorker.getRegistrations();await Promise.all(r.map(x=>x.unregister()))}catch(e){}location.reload()}
 ap();render();
 if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js'));
 </script></body></html>
